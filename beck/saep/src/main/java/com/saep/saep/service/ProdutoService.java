@@ -1,6 +1,6 @@
 package com.saep.saep.service;
 
-import com.saep.saep.CampoVazioException;
+import com.saep.saep.exception.CampoVazioException;
 import com.saep.saep.controller.dto.ProdutoRequestDto;
 import com.saep.saep.model.Produto;
 import com.saep.saep.repository.ProdutoRepository;

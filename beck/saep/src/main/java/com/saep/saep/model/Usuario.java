@@ -9,13 +9,18 @@ import lombok.Setter;
 import java.util.UUID;
 
 @Entity
-@Table(name = "tb_user")
-@Setter
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Usuario {
 
+@Table(name = "tb_user")
+
+@Setter
+
+@Getter
+
+@NoArgsConstructor
+
+@AllArgsConstructor
+
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "usuario_id")
@@ -26,4 +31,9 @@ public class Usuario {
 
     @Column(name = "senha", nullable = false)
     private String senha;
+
+    public Usuario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
 }
