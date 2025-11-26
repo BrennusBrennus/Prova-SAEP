@@ -18,7 +18,7 @@ public class UsuarioService {
     }
 
     public ResponseEntity<?> logar(LoginRequestDto dto) {
-        Usuario usuario = repo.encontrar(dto.login()).
+        Usuario usuario = repo.findByLogin(dto.login()).
                 orElseThrow(()-> new UsuarioNaoEncontradoException("O usuário não foi encontrado"));
 
         if(!usuario.getSenha().equals(dto.senha())) {

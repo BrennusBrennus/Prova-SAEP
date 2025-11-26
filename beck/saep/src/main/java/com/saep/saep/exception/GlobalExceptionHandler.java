@@ -32,8 +32,13 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 
-    @ExceptionHandler
+    @ExceptionHandler(UsuarioNaoEncontradoException.class)
     public ResponseEntity<?> handlerUsuarioNaoEncontradoException(UsuarioNaoEncontradoException ex){
+        return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
+
+    @ExceptionHandler(SenhaException.class)
+    public ResponseEntity<?> handlerSenhaException(SenhaException ex){
         return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 
