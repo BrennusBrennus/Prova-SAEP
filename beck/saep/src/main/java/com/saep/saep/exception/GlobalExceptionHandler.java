@@ -32,6 +32,11 @@ public class GlobalExceptionHandler {
         return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 
+    @ExceptionHandler
+    public ResponseEntity<?> handlerUsuarioNaoEncontradoException(UsuarioNaoEncontradoException ex){
+        return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+    }
+
     private ResponseEntity<?> buildResponse(HttpStatus status, String message){
         Map<String, Object> body = new HashMap<>();
         body.put("timestamp", LocalDateTime.now());
