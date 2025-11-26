@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* --- Reset e Base --- */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+/* --- Animações Globais (Keyframes) --- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes slideInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+@keyframes shimmer { 0% { background-position: -1000px 0; } 100% { background-position: 1000px 0; } }
+@keyframes pulseBackground { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+/* --- UI Kit (Componentes Reutilizáveis) --- */
+/* Inputs */
+.form-group { margin-bottom: 1.25rem; }
+.form-label { display: block; font-size: 0.875rem; font-weight: 700; color: #2d3748; margin-bottom: 0.625rem; text-transform: uppercase; }
+.form-input { width: 100%; padding: 1rem 1.25rem; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; transition: all 0.3s; background: white; }
+.form-input:focus { outline: none; border-color: #4299e1; box-shadow: 0 0 0 4px rgba(66, 153, 225, 0.15); }
+
+/* Botões */
+.btn-primary { width: 100%; padding: 1.125rem; background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 14px rgba(66, 153, 225, 0.4); position: relative; overflow: hidden; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(66, 153, 225, 0.5); }
+
+.btn-secondary { padding: 1rem 1.75rem; background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%); color: white; border: none; border-radius: 12px; font-weight: 700; cursor: pointer; transition: all 0.3s; white-space: nowrap; box-shadow: 0 4px 14px rgba(66, 153, 225, 0.4); }
+.btn-secondary:hover { transform: translateY(-3px); }
+
+/* Cards Genéricos */
+.content-card { background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(20px); border-radius: 24px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12); border: 1px solid rgba(255, 255, 255, 0.5); animation: fadeIn 0.5s ease-out; }
+
+/* Títulos de Página */
+.page-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 3px solid transparent; background: linear-gradient(90deg, #4299e1 0%, #3182ce 50%, transparent 100%); background-size: 100% 3px; background-position: 0 100%; background-repeat: no-repeat; animation: slideInRight 0.6s ease-out; }
+.page-title { font-size: 2.25rem; font-weight: 800; background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 0; }

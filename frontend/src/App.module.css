@@ -1,0 +1,32 @@
+.appContainer {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  /* O background já está no body, mas mantemos aqui para garantir contexto */
+}
+
+.appContainer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(72, 177, 234, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  animation: pulseBackground 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .appContainer { flex-direction: column; }
+}
