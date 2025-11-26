@@ -1,5 +1,6 @@
 package com.saep.saep.repository;
 
+import com.saep.saep.model.Movimentacao;
 import com.saep.saep.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -9,9 +10,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 @Repository
-public interface ProdutoRepository extends JpaRepository<Produto, UUID>{
+public interface MovimentacaoRepository extends JpaRepository<Movimentacao, UUID> {
+    Optional<Movimentacao> findByProduto(Produto produto);
 
-    List<Produto> findByNomeContains(String nome);
-
-    Optional<Produto> findByNome(String nome);
+    List<Movimentacao> findAllByProduto(Produto produto);
 }
