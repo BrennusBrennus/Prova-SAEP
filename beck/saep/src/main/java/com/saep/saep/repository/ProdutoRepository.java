@@ -1,4 +1,4 @@
-package com.saep.saep;
+package com.saep.saep.repository;
 
 import com.saep.saep.model.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
