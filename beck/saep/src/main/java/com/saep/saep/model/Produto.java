@@ -29,4 +29,10 @@ public class Produto {
 
     @Column(name = "quantidade_minima", nullable = false)
     private int quantidadeMinima;
+
+    public Produto(String nome, int quantidade, int quantidadeMinima) {
+        this.nome = nome;
+        this.quantidade = quantidade;
+        this.quantidadeMinima = quantidadeMinima;
+    }
 }
