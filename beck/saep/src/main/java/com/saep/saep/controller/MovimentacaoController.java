@@ -28,8 +28,8 @@ public class MovimentacaoController {
     ) {}
 
     @PostMapping
-    public ResponseEntity<Movimentacao> cadastrar(@RequestBody MovimentacaoRequest request) {
-        Movimentacao mov = movimentacaoService.cadastrar(
+    public ResponseEntity<?> cadastrar(@RequestBody MovimentacaoRequest request) {
+       return movimentacaoService.cadastrar(
                 request.idProduto(),
                 request.status(),
                 request.responsavel(),
@@ -37,7 +37,7 @@ public class MovimentacaoController {
                 request.motivo()
         );
 
-        return ResponseEntity.ok(mov);
+
     }
 
     @GetMapping

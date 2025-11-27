@@ -36,7 +36,7 @@ public class MovimentacaoService {
         if (mov.getResponsavel() == null || mov.getResponsavel().trim().isEmpty())
             throw new CampoVazioException("Responsável não informado");
 
-        if (mov.getQuantidade() <= 0)
+        if (mov.getQuantidade() < 0)
             throw new CampoVazioException("Quantidade deve ser maior que zero");
     }
 
@@ -50,7 +50,7 @@ public class MovimentacaoService {
                 .orElseThrow(() -> new NaoEncontradoException("Movimentação não encontrada"));
     }
 
-    public Movimentacao cadastrar(UUID idProduto,
+    public ResponseEntity<?> cadastrar(UUID idProduto,
                                   MovimentacaoStatus status,
                                   String responsavel,
                                   int quantidade,
@@ -81,9 +81,12 @@ public class MovimentacaoService {
 
         // Atualiza produto no banco
         produtoRepository.save(produto);
+        if(mov.getQuantidade() < produto.getQuantidadeMinima()){
+            return ResponseEntity.ok("O produto: "+ produto.getNome()+ " possui uma quantidade inferior a minima");
+        }
 
         // Salva a movimentação
-        return movimentacaoRepository.save(mov);
+        return ResponseEntity.ok().build();
     }
     public Movimentacao buscarPorId(UUID id) {
         return buscarMovimentacao(id);
