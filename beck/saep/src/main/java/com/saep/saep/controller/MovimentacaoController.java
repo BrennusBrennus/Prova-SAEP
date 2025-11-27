@@ -50,11 +50,6 @@ public class MovimentacaoController {
         return ResponseEntity.ok(movimentacaoService.buscarPorId(id));
     }
 
-    @GetMapping("/produto/{idProduto}")
-    public ResponseEntity<List<Movimentacao>> buscarPorProduto(@PathVariable UUID idProduto) {
-        return ResponseEntity.ok(movimentacaoService.buscarPorProduto(idProduto));
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable UUID id) {
         movimentacaoService.excluir(id);

@@ -85,18 +85,12 @@ public class MovimentacaoService {
         // Salva a movimentação
         return movimentacaoRepository.save(mov);
     }
-
-    public List<Movimentacao> listar() {
-        return movimentacaoRepository.findAll();
-    }
-
     public Movimentacao buscarPorId(UUID id) {
         return buscarMovimentacao(id);
     }
 
-    public List<Movimentacao> buscarPorProduto(UUID idProduto) {
-        Produto produto = buscarProduto(idProduto);
-        return movimentacaoRepository.findAllByProduto(produto);
+    public List<Movimentacao> listar() {
+        return movimentacaoRepository.listarMovimentacoesOrdenadasPorNomeDoProduto();
     }
 
     public void excluir(UUID id) {

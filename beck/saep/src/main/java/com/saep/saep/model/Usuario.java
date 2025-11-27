@@ -27,6 +27,11 @@ public class Usuario {
     @Column(name = "senha", nullable = false)
     private String senha;
 
+    public Usuario(String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
+
     public UUID getId() {
         return id;
     }
@@ -50,4 +55,5 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
 }
