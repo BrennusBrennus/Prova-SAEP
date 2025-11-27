@@ -79,13 +79,11 @@ public class MovimentacaoService {
 
         validar(mov);
 
-        // Atualiza produto no banco
         produtoRepository.save(produto);
+        movimentacaoRepository.save(mov);
         if(mov.getQuantidade() < produto.getQuantidadeMinima()){
             return ResponseEntity.ok("O produto: "+ produto.getNome()+ " possui uma quantidade inferior a minima");
         }
-
-        // Salva a movimentação
         return ResponseEntity.ok().build();
     }
     public Movimentacao buscarPorId(UUID id) {
